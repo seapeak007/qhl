@@ -4,11 +4,11 @@
     <!-- 文件输出格式 -->
     <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
     <!-- test文件路径 -->
-    <property name="TEST_FILE_PATH" value="/home/app/logs/websocket/" />
+    <property name="TEST_FILE_PATH" value="/home/q7/logs/qhl/" />
     <!-- forecast文件路径 -->
-    <property name="FORECAST_FILE_PATH" value="/home/centos/logs/websocket/" />
+    <property name="FORECAST_FILE_PATH" value="/home/centos/logs/qhl/" />
     <!-- pro文件路径 -->
-    <property name="PRO_FILE_PATH" value="/home/centos/logs/websocket/" />
+    <property name="PRO_FILE_PATH" value="/home/centos/logs/qhl/" />
 
     <!-- 开发环境 -->
     <springProfile name="local">
@@ -18,7 +18,7 @@
             </encoder>
         </appender>
 
-        <logger name="com.sinochem.yunlian.truck" level="debug"/>
+        <logger name="com.qhl" level="debug"/>
 
         <!--elk-->
         <!--<appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
@@ -55,7 +55,7 @@
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
-        <logger name="com.sinochem.yunlian.truck" level="debug"/>
+        <logger name="com.qhl" level="debug"/>
         <root level="info">
             <appender-ref ref="TEST-FILE" />
         </root>
@@ -79,7 +79,7 @@
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
-        <logger name="com.sinochem.yunlian.truck" level="debug"/>
+        <logger name="com.qhl" level="debug"/>
         <root level="info">
             <appender-ref ref="FORECAST-FILE" />
         </root>
@@ -98,7 +98,7 @@
                 <pattern>${PATTERN}</pattern>
             </layout>
         </appender>
-        <logger name="com.sinochem.yunlian.truck" level="debug"/>
+        <logger name="com.qhl" level="debug"/>
         <root level="INFO">
             <appender-ref ref="PROD_FILE" />
         </root>
