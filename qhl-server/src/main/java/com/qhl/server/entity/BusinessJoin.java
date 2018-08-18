@@ -72,6 +72,11 @@ public class BusinessJoin {
     @Column(name = "company_zip")
     private String companyZip ;
     /*
+    备注
+     */
+    @Column(name = "remark")
+    private String remark ;
+    /*
     创建时间
      */
     @Column(name = "create_time")

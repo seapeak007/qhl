@@ -55,6 +55,10 @@ public class BusinessJoinInfo {
      */
     private String companyZip ;
     /*
+    备注
+     */
+    private String remark ;
+    /*
     创建时间
      */
     private Date createTime ;
