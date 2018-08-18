@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/qhl.iml" filepath="$PROJECT_DIR$/qhl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qhl-center/qhl-center.iml" filepath="$PROJECT_DIR$/qhl-center/qhl-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qhl-common/qhl-common.iml" filepath="$PROJECT_DIR$/qhl-common/qhl-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qhl-server/qhl-server.iml" filepath="$PROJECT_DIR$/qhl-server/qhl-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qhl-server-inf/qhl-server-inf.iml" filepath="$PROJECT_DIR$/qhl-server-inf/qhl-server-inf.iml" />
+    </modules>
+  </component>
+</project>

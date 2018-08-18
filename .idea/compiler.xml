@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="qhl-center" />
+        <module name="qhl-common" />
+        <module name="qhl-server" />
+        <module name="qhl-server-inf" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="qhl" target="1.6" />
+      <module name="qhl-center" target="1.6" />
+      <module name="qhl-common" target="1.8" />
+      <module name="qhl-server" target="1.8" />
+      <module name="qhl-server-inf" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
