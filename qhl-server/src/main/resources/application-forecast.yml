@@ -1,0 +1,88 @@
+spring:
+    application:
+        name: yunlian-truck-websocket
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        locale: zh
+        default-property-inclusion: non_null
+
+    http:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 20MB
+        enabled: true
+
+    rocketmq:
+        producer:
+          # 发送同一类消息的设置为同一个group，保证唯一,默认不需要设置，rocketmq会使用ip@pid(pid代表jvm名字)作为唯一标示
+          groupName: websocketProducerGroupForecast
+          #mq的nameserver地址
+          namesrvAddr: 10.144.130.96:9876;10.144.130.94:9876
+          #如果需要同一个jvm中不同的producer往不同的mq集群发送消息，需要设置不同的instanceName
+          instanceName: websocketProducerForecast
+          #topic名称
+          topicMessage: yunlian-truck-websocket-forecast
+          #消息最大长度
+          maxMessageSize: 131072
+          #发送消息超时时间
+          sendMsgTimeout: 10000
+        consumer:
+          namesrvAddr: 10.144.130.96:9876;10.144.130.94:9876
+          groupName: websocketConsumerGroupForecast
+          topicMessage: yunlian-truck-websocket-forecast
+          tag: websocket
+          consumeThreadMin: 20
+          consumeThreadMax: 64
+
+server:
+    port: 8877
+
+eureka:
+    instance:
+        statusPageUrlPath: /info
+        healthCheckUrlPath: /health
+        preferIpAddress: true
+        instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+#        lease-expiration-duration-in-seconds: 10
+#        lease-renewal-interval-in-seconds: 5
+        # docker 部署开启
+#        prefer-ip-address: true
+#        ip-address: 127.0.0.1
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+#        initial-instance-info-replication-interval-seconds: 5
+#        eureka-service-url-poll-interval-seconds: 5
+#        registry-fetch-interval-seconds: 5
+        serviceUrl:
+            defaultZone: http://10.144.130.78:8761/eureka/,http://10.144.130.120:8761/eureka/
+                    # docker 部署开启
+#            defaultZone: http://center:8761/eureka/
+
+feign:
+  hystrix:
+    enabled: false
+
+homepage:
+  serviceId: yunlian-truck-homepage
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+#          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 50000
+
+jwt:
+  token-header: Authorization
+  pc:
+    expire: 2592000
+  app:
+    expire: 2592000
+  pri-key:
+    path: jwt/pri.key
+  pub-key:
+    path: jwt/pub.key
