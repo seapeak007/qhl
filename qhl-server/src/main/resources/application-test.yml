@@ -1,6 +1,6 @@
 spring:
     application:
-        name: yunlian-truck-websocket
+        name: qhl-server
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
         time-zone: GMT+8
@@ -11,28 +11,26 @@ spring:
         max-file-size: 20MB
         max-request-size: 20MB
         enabled: true
+    datasource:
+        name: dev
+        url: jdbc:mysql://localhost:3306/qihuanlian?useUnicode=true&characterEncoding=UTF8
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
 
-    rocketmq:
-        producer:
-          # 发送同一类消息的设置为同一个group，保证唯一,默认不需要设置，rocketmq会使用ip@pid(pid代表jvm名字)作为唯一标示
-          groupName: websocketProducerGroupTest
-          #mq的nameserver地址
-          namesrvAddr: 10.144.130.96:9876;10.144.130.94:9876
-          #如果需要同一个jvm中不同的producer往不同的mq集群发送消息，需要设置不同的instanceName
-          instanceName: websocketProducerTest
-          #topic名称
-          topicMessage: yunlian-truck-websocket-test
-          #消息最大长度
-          maxMessageSize: 131072
-          #发送消息超时时间
-          sendMsgTimeout: 10000
-        consumer:
-          namesrvAddr: 10.144.130.96:9876;10.144.130.94:9876
-          groupName: websocketConsumerGroupTest
-          topicMessage: yunlian-truck-websocket-test
-          tag: websocket
-          consumeThreadMin: 20
-          consumeThreadMax: 64
 server:
     port: 8877
 
@@ -54,16 +52,13 @@ eureka:
 #        eureka-service-url-poll-interval-seconds: 5
 #        registry-fetch-interval-seconds: 5
         serviceUrl:
-            defaultZone: http://10.144.130.88:8761/eureka/
+            defaultZone: http://localhost:8761/eureka/
                     # docker 部署开启
 #            defaultZone: http://center:8761/eureka/
 
 feign:
   hystrix:
     enabled: false
-
-homepage:
-  serviceId: yunlian-truck-homepage
 
 hystrix:
   command:
