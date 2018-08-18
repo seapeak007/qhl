@@ -1,0 +1,31 @@
+.content img{
+	width: 100%;
+}
+.content p{
+	padding: 10px 20px;
+	position: relative;
+	font-size: 12px;
+}
+.count{
+	color: #ee6f1a;
+}
+.btn{
+	background: #fca823;
+	border-radius: 2px;
+	color: #fff;
+	float: right;
+	text-align: center;
+	font-size: 12px;
+	padding: 2px 10px 3px;
+    position: relative;
+    top: -5px;
+}
+.content i{
+	float: right;
+	color: #979797;
+	font-style: normal;
+	margin-right: 12px;
+}
+.wrap{
+	padding-bottom: 50px;
+}

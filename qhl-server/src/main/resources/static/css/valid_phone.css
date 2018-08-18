@@ -1,0 +1,57 @@
+.valid-phone .title{
+    color: #afafaf;
+    text-align: center;
+    margin: 10px 0;
+}
+.valid-phone input{
+    border: 1px solid #dedfe0;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+.valid-phone input:focus{
+    border: 1px solid #ffbd66;
+}
+.valid-phone .phone input{
+    width: 80%;
+}
+.valid-phone .phone .wrap-btn{
+    width: 18%;
+    float: right;
+}
+.valid-phone .btn{
+    padding: 8px;
+}
+.valid-phone .info{
+    margin: 10px 0;
+    color: #999;
+}
+.valid-phone .info a{
+    color: #fa8919;
+}
+.valid-phone .wrap-btn .btn{
+	font-size: 16px;
+	padding: 8px;
+	box-sizing: border-box;
+    width: 100%;
+}
+.valid-phone .error{
+    color: orange;
+    height: 30px;
+    line-height: 30px;
+}
+.valid-phone .wrap-btn .btn-invalid{
+    background-color: #e0e0e0;
+}
+.valid-phone .header{
+    position: static;
+}
+.valid-phone .wrap{
+    top: 0;
+}
+.error a{
+    color: orange;
+}

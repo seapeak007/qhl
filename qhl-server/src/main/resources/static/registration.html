@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="format-detection" content="telephone=no">
+    <META HTTP-EQUIV="imagetoolbar" CONTENT="no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="pragram" content="no-cache">
+    <title>汽环联</title>
+    <link rel="stylesheet" type="text/css" href="css/hbcommon.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+</head>
+<body>
+    <section>
+        <article>
+            <div class="login-conten">
+               		<input type="hidden" name="hkcVehicleOwnerInfoId" id="hkcVehicleOwnerInfoId" value="">
+               		<input type="hidden" name="qjphone" id="qjphone" value="">
+               		<input type="hidden" name="qjvertify" id="qjvertify" value="">
+                    <div class="login-main">
+                        <div class="item">
+                            <input type="text" class="input-sm" name="name" id="name" maxlength='10' placeholder="车主姓名">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="phone" id="phone" maxlength='11' placeholder="联系电话">
+                        </div>
+                        <div class="item ident-code" style="display:none;">
+                            <input type="text" class="input-sm" name="code" id="code" maxlength='6' placeholder="短信验证码">
+                            <button class="btn btn-green btn-round btn-sm code send1" onclick="sends.send();" type="button">获取验证码</button>
+                        </div>
+                    </div>
+                    <div class="car-content">
+                        <div class="content">
+                            <div class="item line-item" id="car-type-div"><label>车型年款</label><span><input type="text" class="input-sm" brand="" style="" year=""  name="car-type" id="car-type" placeholder="请选择"></span></div>
+                            <div class="item"><label>车牌号</label>
+                                <span>
+                                    <i class="iconfont icon-car-number"></i>
+                                    <b class="car-num" id="plateNo_index">京</b>
+                                    <input type="text" class="input-sm number" name="plateNo" id="plateNo" maxlength='6' onchange="upperCase(this.id)" placeholder="车牌号">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="agreement">
+                            <input type="checkbox" id="chek">
+                            <label for="chek">我已阅读并同意<a href="protocol.html">《i保养服务协议》</a></label>
+                        </div>
+                        <div class="login-tell">
+                            <div class="text">客服电话：400-687-1230</div>
+                            <div class="con" onclick="submitData();">
+                                <input type="button" class="btn btn-orange btn-block btn-round" value="立即预约"/>
+                            </div>
+                        </div>
+                        <div class="car-plate">
+                            <div class="content">
+                                <span class="edit">
+                                            <label for="beijing">京</label>
+                                            <input type="radio" name="city" id="京" value="京">
+                                        </span>
+                                <span class="edit">
+                                                <label for="shanghai">沪</label>
+                                            <input type="radio" name="city" id="沪" value="沪">
+                                        </span>
+                                 <span class="edit">
+                                                <label for="suzhou">闽</label>
+                                                 <input type="radio" name="city" id="闽" value="闽">
+                                        </span>
+                                <span class="edit">
+                                            <label for="zhejiang">浙</label>
+                                            <input type="radio" name="city" id="浙" value="浙">
+                                        </span>
+                                        
+                               <span class="edit">
+                                                <label for="guangzhou">鲁</label>
+                                            <input type="radio" name="city" id="鲁" value="鲁">
+                                        </span>
+                                <span class="edit">
+                                            <label for="gui">津</label>
+                                            <input type="radio" name="city" id="津" value="津">
+                                        </span>
+                                <span class="edit">
+                                            <label for="sichuan">渝</label>
+                                            <input type="radio" name="city" id="渝" value="渝">
+                                        </span>
+                                 <span class="edit">
+                                            <label for="beijing">云</label>
+                                            <input type="radio" name="city" id="云" value="云">
+                                        </span>
+                                 
+                                  <span class="edit">
+                                                <label for="guangzhou">辽</label>
+                                            <input type="radio" name="city" id="辽" value="辽">
+                                        </span>
+                                <span class="edit">
+                                            <label for="gui">黑</label>
+                                            <input type="radio" name="city" id="黑" value="黑">
+                                        </span>
+                                <span class="edit">
+                                            <label for="sichuan">湘</label>
+                                            <input type="radio" name="city" id="湘" value="湘">
+                                        </span>
+                                 <span class="edit">
+                                            <label for="beijing">皖</label>
+                                            <input type="radio" name="city" id="皖" value="皖">
+                                        </span>
+                                               
+                                <span class="edit">
+                                                <label for="shanghai">豫</label>
+                                            <input type="radio" name="city" id="豫" value="豫">
+                                        </span>
+                                <span class="edit">
+                                            <label for="zhejiang">新</label>
+                                            <input type="radio" name="city" id="新" value="新">
+                                        </span>
+                                <span class="edit">
+                                                <label for="suzhou">苏</label>
+                                                 <input type="radio" name="city" id="苏" value="苏">
+                                        </span>
+                                <span class="edit">
+                                                <label for="guangzhou">赣</label>
+                                            <input type="radio" name="city" id="赣" value="赣">
+                                        </span>
+                                               
+                                <span class="edit">
+                                                <label for="shanghai">鄂</label>
+                                            <input type="radio" name="city" id="鄂" value="鄂">
+                                        </span>
+                                <span class="edit">
+                                            <label for="zhejiang">桂</label>
+                                            <input type="radio" name="city" id="桂" value="桂">
+                                        </span>
+                                <span class="edit">
+                                                <label for="suzhou">冀</label>
+                                                 <input type="radio" name="city" id="冀" value="冀">
+                                        </span>
+                                <span class="edit">
+                                                <label for="guangzhou">甘</label>
+                                            <input type="radio" name="city" id="甘" value="甘">
+                                        </span>
+                                                       
+                                <span class="edit">
+                                                <label for="shanghai">晋</label>
+                                            <input type="radio" name="city" id="晋" value="晋">
+                                        </span>
+                                <span class="edit">
+                                            <label for="zhejiang">蒙</label>
+                                            <input type="radio" name="city" id="蒙" value="蒙">
+                                        </span>
+                                <span class="edit">
+                                                <label for="suzhou">陕</label>
+                                                 <input type="radio" name="city" id="陕" value="陕">
+                                        </span>
+                                <span class="edit">
+                                                <label for="guangzhou">吉</label>
+                                            <input type="radio" name="city" id="吉" value="吉">
+                                        </span>
+                                                       
+                                <span class="edit">
+                                                <label for="shanghai">贵</label>
+                                            <input type="radio" name="city" id="贵" value="贵">
+                                        </span>
+                                <span class="edit">
+                                            <label for="zhejiang">粤</label>
+                                            <input type="radio" name="city" id="粤" value="粤">
+                                        </span>
+                            </div>
+                        </div>
+                    </div>
+               
+            </div>
+        </article>
+    </section>
+    <div  style="display:none">
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257133697'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257133697' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.params.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/zepto.alert.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/registration.js"></script>
+<script type="text/javascript" src="js/hbcommon.js"></script>
+<script>
+// 车牌选择
+$(function() {
+		
+	addHeaderWithHref("填写信息","registration.html"+location.search);
+	
+        _h = $(window).height();
+        $('.car-content .item .iconfont').click(function() {
+            $('.car-plate').show();
+            $('body,html').css({
+                 height: _h,
+                 overflow: 'hidden'
+             });
+        })
+        $('.car-plate .content .edit').click(function() {
+            city = $(this).find('input[type="radio"]').val();
+            $('.car-content .item .car-num').text(city);
+            $('.car-plate').hide();
+            $('body, html').css({
+                    overflow: 'visible',
+             });
+        });
+       // $('body').on('focus', '#car-type', function(event) {
+        //    event.preventDefault();
+        
+        $("#car-type-div").unbind("click");
+        $("#car-type-div").click(function() {   
+            
+        	$(":input").blur();
+            //增加本页面的参数组成的datas  json串
+            var name = $("#name").val();
+			var phone = $("#phone").val();
+			var vertify = $("#code").val();
+			var plateNo_index = $("#plateNo_index").html();
+			var plateNo = $("#plateNo").val();
+			var hkcVehicleOwnerInfoId = $("#hkcVehicleOwnerInfoId").val();
+			var qjphone = $("#qjphone").val();
+			var qjvertify = $("#qjvertify").val();
+			
+			var datas ="{" ;
+			if(!(null==name ||""==name ||"undefined"==name )){
+				datas = datas + "\"name\":\""+name+"\"," ;
+			}
+			if(!(null==hkcVehicleOwnerInfoId ||""==hkcVehicleOwnerInfoId ||"undefined"==hkcVehicleOwnerInfoId )){
+				datas = datas + "\"hkcVehicleOwnerInfoId\":\""+hkcVehicleOwnerInfoId+"\"," ;
+			}
+			if(!(null==qjphone ||""==qjphone ||"undefined"==qjphone )){
+				datas = datas + "\"qjphone\":\""+qjphone+"\"," ;
+			}
+			if(!(null==qjvertify ||""==qjvertify ||"undefined"==qjvertify )){
+				datas = datas + "\"qjvertify\":\""+qjvertify+"\"," ;
+			}
+			if(!(null==phone ||""==phone ||"undefined"==phone )){
+				datas = datas + "\"phone\":\""+phone+"\"," ;
+			}
+			if(!(null==vertify ||""==vertify ||"undefined"==vertify )){
+				datas = datas + "\"vertify\":\""+vertify+"\"," ;
+			}
+			if(!(null==plateNo ||""==plateNo ||"undefined"==plateNo )){
+				datas = datas + "\"plateNo\":\""+plateNo+"\"," ;
+			}
+			if(!(null==plateNo_index ||""==plateNo_index ||"undefined"==plateNo_index )){
+				datas = datas + "\"plateNo_index\":\""+plateNo_index +"\"";
+			}
+			datas = datas + "}" ;
+            window.location.href="car_brand.html?datas="+datas;
+        });
+        
+        initDatas();
+        checkUserByOwnerId();
+});
+
+</script>
+</html>

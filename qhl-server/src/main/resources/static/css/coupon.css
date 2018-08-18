@@ -1,0 +1,98 @@
+.coupon-block{
+	margin: 10px;
+	color: #3c3c3c;
+}
+.counpon-item{
+	height: 80px;
+	background: #fff;
+	font-size: 10px;
+	position: relative;
+}
+.counpon-item .title{
+	display: block;
+    color: #f65641;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.counpon-item p{
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 15px 20px;
+}
+.counpon-item .left-border{
+	display: inline-block;
+	box-sizing: border-box;
+	height: 80px;
+	line-height: 80px;
+	color: #ffc68d;
+	font-size: 25px;
+    padding-left: 10px;
+    vertical-align: top;
+    background: url("../images/red-left-border.png") #f65641 repeat-y top left;
+    background-size: 2px;
+    float: right;
+    width: 30%;
+    box-sizing: border-box;
+    text-align: center;
+}
+.counpon-item .right-border{
+    background: url("../images/red-right-border.png") #f65641 repeat-y top right;
+    background-size: 2px;
+    padding-right: 10px;
+}
+.item-red .title{
+	color: #f65641;
+}
+.item-red .left-border{
+	background-image: url("../images/red-left-border.png");
+}
+.item-red .right-border{
+    background-image: url("../images/red-right-border.png");
+}
+.item-yellow .title{
+	color: #ffc835;
+}
+.item-yellow .left-border{
+	background-image: url("../images/yellow-left-border.png");
+	background-color: #ffe68d;
+}
+.item-yellow .right-border{
+    background-image: url("../images/yellow-right-border.png");
+    background-color: #ffe68d;
+    color: #ffb504;
+}
+.item-gray .title{
+	color: #d5d5d5;
+}
+.item-gray .left-border{
+	background-image: url("../images/gray-left-border.png");
+	background-color: #d5d5d5;
+	position: relative;
+}
+.item-gray .right-border{
+    background-image: url("../images/gray-right-border.png");
+    background-color: #d5d5d5;
+    color: #e2e2e2;
+}
+.counpon-item img{
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+}
+.item-gray p{
+	color: #b6b6b6;
+}
+.item-gray{
+	background: #f5f5f5;
+}
+.nocoupon{
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 60px;
+	color: #ccc;
+}
+.nocoupon img{
+	width: 20%;
+	margin-bottom: 10px;
+}

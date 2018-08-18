@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+.alertInfo{ width:280px; height:160px; background:#e7e7e7; position:fixed; left:50%; top:50%; margin-left:-140px; margin-top:-75px; z-index:1000; border-radius:5px;}
+.mask0{background-color: rgba(0,0,0,.7); width: 100%; height: 100%; position: fixed; z-index: 999; top: 0; left: 0; display: block;}
+.infoContent{  text-align:center;  color:#000; font-size:14px; padding:5px 15px;}
+.alertOk{ position:absolute; width:238px; height:36px;  position:absolute; bottom:10px; left:20px; text-align:center; color:#060606; font-size:14px; line-height:36px; border-radius:5px; background:#fd8e08; color:#fff; }
+.alertOka{ position:absolute; width:108px; height:36px; display:inline-block;  position:absolute; bottom:10px; left:20px; text-align:center; color:#060606; font-size:14px; line-height:36px; border-radius:5px; background:#fd8e08; color:#fff; text-decoration:none; }
+.alertOkb{ position:absolute; width:108px; height:36px; display:inline-block;  position:absolute; bottom:10px; left:154px; text-align:center; color:#060606; font-size:14px; line-height:36px; border-radius:5px; background:#9fa4a7; color:#fff; text-decoration:none;}
+.alertOkaa{ position:absolute; width:108px; height:36px; display:inline-block;  position:absolute; bottom:10px; left:20px; text-align:center; color:#060606; font-size:14px; line-height:36px; border-radius:5px; background:#f5a723; color:#fff; text-decoration:none; }
+.alertOkbb{ position:absolute; width:108px; height:36px; display:inline-block;  position:absolute; bottom:10px; left:154px; text-align:center; color:#060606; font-size:14px; line-height:36px; border-radius:5px; background:#ffffff; color:#f5a723; text-decoration:none;}
+
+.alertInfo5{ width:280px; height:160px; background:#000000; position:fixed; left:50%; top:50%; margin-left:-140px; margin-top:-75px; z-index:1000; border-radius:5px;background-color:rgba(0,0,0,0.8)}
+
+.infoContent5{  text-align:center;  color:#fff; font-size:14px; padding:5px 15px;}
+
+.alertInfo2{ width:280px; height:160px; background:#e7e7e7; position:fixed; left:50%; top:50%; margin-left:-140px; margin-top:-75px; z-index:1000; border-radius:5px;}
+.infoContent2{  text-align:center;  color:#000; font-size:13px; padding:5px 15px;}
