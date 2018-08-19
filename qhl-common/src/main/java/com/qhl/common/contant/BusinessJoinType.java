@@ -11,11 +11,11 @@ public enum BusinessJoinType {
     /*
     2018年9月15日
      */
-    FRIST(1),
+    FRIST(0),
 
-    SECOND(2),
+    SECOND(1),
 
-    THRID(3) ;
+    THRID(2) ;
 
 
     private int value;

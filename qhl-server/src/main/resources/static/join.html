@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="format-detection" content="telephone=no">
+    <META HTTP-EQUIV="imagetoolbar" CONTENT="no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="pragram" content="no-cache">
+    <title>汽环联</title>
+    <link rel="stylesheet" type="text/css" href="css/hbcommon.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+</head>
+<body>
+    <section>
+        <article>
+            <div class="login-conten">
+                    <div class="login-main">
+                        <div class="item">
+                            <input type="text" class="input-sm" name="name" id="name" maxlength='10' placeholder="姓名">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="phone" id="phone" maxlength='11' placeholder="手机号">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="grade" id="grade" maxlength='50' placeholder="职务">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="email" id="email" maxlength='50' placeholder="邮箱">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="companyName" id="companyName" maxlength='100' placeholder="单位名称">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="companyAddress" id="companyAddress" maxlength='100' placeholder="单位地址">
+                        </div>
+                        <div class="item">
+                            <input type="text" class="input-sm" name="remark" id="remark" maxlength='100' placeholder="留言">
+                        </div>
+                    </div>
+                    <div class="car-content">
+                        <div class="login-tell">
+                            <div class="text">联系电话：18911889545</div>
+                            <div class="con" onclick="submitData();">
+                                <input type="button" class="btn btn-orange btn-block btn-round" value="立即报名"/>
+                            </div>
+                        </div>
+                    </div>
+               
+            </div>
+        </article>
+    </section>
+</body>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.params.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/zepto.alert.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+<script type="text/javascript" src="js/registration.js"></script>
+<script type="text/javascript" src="js/hbcommon.js"></script>
+<script>
+$(function() {
+
+    addHeaderNoBack("填写信息","join.html"+location.search);
+	
+        _h = $(window).height();
+       // $('body').on('focus', '#car-type', function(event) {
+        //    event.preventDefault();
+
+});
+
+</script>
+</html>

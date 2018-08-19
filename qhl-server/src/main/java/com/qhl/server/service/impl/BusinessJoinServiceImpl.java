@@ -37,7 +37,12 @@ public class BusinessJoinServiceImpl implements BusinessJoinService {
         if(info ==null ||info.getPhone()<1){
             throw new TransException(ErrorCodeUtils.COMMON_PARAM,"参数有误") ;
         }
-        BusinessJoin businessJoin = new BusinessJoin() ;
+        BusinessJoin businessJoin = this.businessJoinRepository.findByPhoneAndBusinessJoinType(
+                info.getPhone(), info.getBusinessJoinType()) ;
+        if(businessJoin !=null){
+            throw new TransException(ErrorCodeUtils.COMMON_PARAM,"该手机号已经报名过了") ;
+        }
+        businessJoin = new BusinessJoin() ;
         BeanUtils.copyProperties(info,businessJoin);
         businessJoin.setJoinId(idGenerator.newId());
         businessJoin.setCreateTime(new Date());

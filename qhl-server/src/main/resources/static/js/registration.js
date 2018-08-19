@@ -51,54 +51,6 @@ function checkphone(s) {
 // 	    }
 // 	}
 
-function initDatas(){
-	
-	var hkcVehicleOwnerInfoId = $.query.get("hkcVehicleOwnerInfoId")==true?"":$.query.get("hkcVehicleOwnerInfoId");
-	var brandid = $.query.get("brandid")==true?"":$.query.get("brandid");
-    var brandname = $.query.get("brandname")==true?"":$.query.get("brandname");
-    var firmid = $.query.get("firmid")==true?"":$.query.get("firmid");
-    var firmname = $.query.get("firmname")==true?"":$.query.get("firmname");
-    var seriesid = $.query.get("seriesid")==true?"":$.query.get("seriesid");
-    var seriesname = $.query.get("seriesname")==true?"":$.query.get("seriesname");
-    var yearid = $.query.get("yearid")==true?"":$.query.get("yearid");
-    var yearname = $.query.get("yearname")==true?"":$.query.get("yearname");
-    var datas = $.query.get("datas")==true?"":$.query.get("datas");
-   
-    var brandSeriesName = $.query.get("brandSeriesName")==true?"":$.query.get("brandSeriesName");
-    var typeName = $.query.get("typeName")==true?"":$.query.get("typeName");
-    
-    if(hkcVehicleOwnerInfoId !=""){
-    	$("#hkcVehicleOwnerInfoId").val(hkcVehicleOwnerInfoId);
-    }
-    
-    var obj = eval('(' + datas + ')');
-    
-    if(obj.hkcVehicleOwnerInfoId !=""){
-    	$("#hkcVehicleOwnerInfoId").val(obj.hkcVehicleOwnerInfoId);
-    }
-    
-    $("#qjphone").val(obj.qjphone);
-	$("#qjvertify").val(obj.qjvertify);
-    $("#name").val(obj.name);
-	$("#phone").val(obj.phone);
-	$("#code").val(obj.vertify);
-	$("#plateNo_index").html(obj.plateNo_index);
-	$("#plateNo").val(obj.plateNo);
-	
-	$("#car-type").attr("brand",brandname);
-	$("#car-type").attr("firm",firmname);
-	$("#car-type").attr("series",seriesname);
-	$("#car-type").attr("year",yearid);
-	$("#car-type").attr("typeName",typeName);
-	$("#car-type").attr("brandSeriesName",brandSeriesName);
-	
-	if(!(brandid==""||"undefined"==brandid||null==brandid)){
-		$("#car-type").val(brandname+"-"+seriesname);
-	}
-}
-
-
-
 function upperCase(x){
     var y=document.getElementById(x).value ;
     document.getElementById(x).value=y.toUpperCase() ;
@@ -119,108 +71,65 @@ function submitData(){
 	
 	var name = $("#name").val();
 	var phone = $("#phone").val().replace(/\s+/g,"");
-	var vertify = $("#code").val();
-	var brand = $("#car-type").attr("brand");
-	var firm = $("#car-type").attr("firm");
-	var series = $("#car-type").attr("series");
-	var year =  $("#car-type").attr("year");
-	var plateNo = $("#plateNo_index").html()+ $("#plateNo").val().toUpperCase();
-	var hkcVehicleOwnerInfoId = $("#hkcVehicleOwnerInfoId").val();
-	var qjphone = $("#qjphone").val();
-	var qjvertify = $("#qjvertify").val();
+    var grade = $("#grade").val();
+    var email = $("#email").val();
+    var companyName = $("#companyName").val();
+    var companyAddress = $("#companyAddress").val();
+    var remark = $("#remark").val();
 	
-	var brandSeriesName =  $("#car-type").attr("brandSeriesName");
-	var typeName =  $("#car-type").attr("typeName");
-	
-	if(null==hkcVehicleOwnerInfoId ||""==hkcVehicleOwnerInfoId ||"undefined"==hkcVehicleOwnerInfoId ){
-		alert('程序异常，请联系管理员！');
-		return;
-	}
-	
-	if($.trim(name)==""||name=="车主姓名")
-	{
-		alert('请填写车主姓名！');
+	if($.trim(name)==""||name=="姓名"){
+		alert('请填写姓名！');
 		return;
 	}else{
 		
 		if($.trim(name).length>10){
-			alert('请填写正确的车主姓名！');
+			alert('请填写正确的姓名！');
 			return ;
 		}
 	}
 	
 	 if (!checkphone(phone)) {
-	     alert('请填写正确联系电话！');
+	     alert('请填写正确手机号！');
 	     return ;
 	 }
-//	 if(!checkVertify(phone,vertify)){
-//		 alert('验证码不匹配，请填写正确的短信验证码！');
-//	     return ;
-//	 }
-	
-	plateNo = ToCDB(plateNo.replace(/\s/ig,'')) ;
-	var regPartton=/^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{5}$/;
-	var regPartton1=/^[\u4e00-\u9fa5]{1}[a-zA-Z]{1}[a-zA-Z_0-9]{4}[\u4e00-\u9fa5]{1}$/;
-	if(!regPartton.test(plateNo)&&(!regPartton1.test(plateNo))){
-		 alert('请填写正确的车牌号！');
-		return;
-	}
-	
-	if(!checkPlateNoAndPhone(phone,plateNo,hkcVehicleOwnerInfoId)){
-		 alert('车牌号已被注册！');
-	     return ;
-	 }
-	
-	if(""==brand ||"undefined"==brand ||null==brand){
-		 alert('请选择车型年款！');
-		return;
-	}
-	
-	if(!$('#chek').is(':checked')){
-		alert('请确认您已阅读并同意惠开车用户协议！');
-		return;
-	}
-	
-	$.ajax({
-        url: '/HKCIBY/hkcVehicleOwnerInfo/registHkcVehicleOwnerInfo.action',
-        type: 'POST',
-        dataType: 'json',
-        data: {
-        	name :name ,
-            phone: phone,
-            brand :brand ,
-            firm: firm,
-            series: series,
-            year :year ,
-            plateNo: plateNo,
-            hkcVehicleOwnerInfoId: hkcVehicleOwnerInfoId,
-            brandSeriesName:brandSeriesName,
-            typeName:typeName
-        },
-        success: function(data) {
-        	var status = data.status ;
-        	if(status != "1"){
-        		alert('程序异常，请联系管理员！');
-        	}else{
-        		var openid = data.openid ;
-        		var freeFlag = data.freeFlag ;//1
-        		var hkcVehicleInfoId = data.hkcVehicleInfoId ;
-        		var newhkcVehicleOwnerInfoId = data.hkcVehicleOwnerInfoId ;
-        		if(freeFlag=="1"){
-        			
-        			var url1= "index.html?hkcVehicleOwnerInfoId="+newhkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+hkcVehicleInfoId;
-        			var url2= "serviceslist.html?hkcVehicleOwnerInfoId="+newhkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+hkcVehicleInfoId;
-        			alert3('确定','立即预约','恭喜您已加入全年免费保养计划！',url1,url2);
-        			
-        		}else{
-        			
-        			var url1 = "bzjadd.html?hkcVehicleOwnerInfoId="+newhkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+hkcVehicleInfoId+"&openid="+openid;
-        			var url2= "index.html?hkcVehicleOwnerInfoId="+newhkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+hkcVehicleInfoId;
-        			alert3("立即加入","暂不加入","亲~您还没有加入全年免费保养计划！",url1,url2);
 
-//        			window.location.href="bzjadd.html?hkcVehicleOwnerInfoId="+newhkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+hkcVehicleInfoId+"&openid="+openid;
-        		}
-        	}
+    if($.trim(grade)==""||grade=="职务"){
+        alert('请填写职务！');
+        return;
+    }
+
+    if($.trim(email)==""||email=="邮箱"){
+        alert('请填写邮箱！');
+        return;
+    }
+
+    if($.trim(companyName)==""||companyName=="单位名称"){
+        alert('请填写单位名称！');
+        return;
+    }
+
+    var business ={
+        "name" :name ,
+        "phone": phone,
+        "grade" :grade ,
+        "email": email,
+        "companyName": companyName,
+        "companyAddress" :companyAddress ,
+        "remark": remark
+    }
+	$.ajax({
+        url: '/business/1/join',
+        type: 'POST',
+		dataType:'json' ,
+        contentType: 'application/json;charset=utf-8',
+		data: JSON.stringify(business),
+        success: function(data) {
+        	var status = data.rpco ;
+        	if(status == 200){
+        		alert('报名成功！');
+        	}else{
+        		alert(data.msg);
+			}
         }
     }); 
 	
