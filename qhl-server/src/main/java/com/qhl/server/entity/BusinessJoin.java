@@ -4,11 +4,9 @@ import com.qhl.common.contant.BusinessJoinType;
 import com.qhl.common.contant.Sex;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.sql.Date;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by qjm on 18-8-18
@@ -25,6 +23,7 @@ public class BusinessJoin {
     会议类型，哪次会议
      */
     @Column(name = "join_type")
+    @Enumerated(EnumType.ORDINAL)
     private BusinessJoinType businessJoinType ;
     /*
     姓名
@@ -35,6 +34,7 @@ public class BusinessJoin {
     性别，0未录入
      */
     @Column(name = "sex")
+    @Enumerated(EnumType.ORDINAL)
     private Sex sex ;
     /*
     职务
@@ -80,7 +80,12 @@ public class BusinessJoin {
     创建时间
      */
     @Column(name = "create_time")
-    private Date createTime ;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createTime;
+
+    @Column(name="version")
+    @Version
+    private Timestamp version;
 
 
 }

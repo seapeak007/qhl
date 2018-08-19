@@ -30,7 +30,11 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-
+    jpa:
+        hibernate:
+          ddl-auto: update
+          dialect: org.hibernate.dialect.MySQL5Dialect
+        show-sql : true
 server:
     port: 8877
 

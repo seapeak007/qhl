@@ -22,6 +22,9 @@
         <module>qhl-server</module>
     </modules>
 
+    <properties>
+        <swagger.version>1.5.13</swagger.version>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>

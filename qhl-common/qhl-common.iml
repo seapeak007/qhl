@@ -93,6 +93,7 @@
     <orderEntry type="library" name="Maven: com.google.zxing:javase:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.zxing:core:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.8" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.14" level="project" />
   </component>
 </module>

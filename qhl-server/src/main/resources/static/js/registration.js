@@ -5,51 +5,51 @@ function checkphone(s) {
     return true ;
 }
 
-var sends = {
-	    checked:1,
-	    send:function(){
-	            var phone = $("#phone").val().replace(/\s+/g,"");
-	            if (!checkphone(phone)) {
-	                alert('请填写正确的手机号！');
-	                return false;
-	            } 
-	            var time = 60;
-	            function timeCountDown(){
-	                if(time==0){
-	                    clearInterval(timer);
-	                    $('.ident-code button').addClass('send1').removeClass('send0').removeAttr("disabled").html("获取验证码");
-	                    sends.checked = 1;
-	                    return true;
-	                }
-	                $('.ident-code button').attr('disabled',"true").html(time+"秒后可重新获取");
-	                time--;
-	                return false;
-	                sends.checked = 0; 
-	            }
-	            $('.ident-code button').addClass('send0').removeClass('send1').removeAttr("disabled");
-	            
-	            var code ="" ;
-	            for (var i = 0; i < 4; i++) {  
-	                code += parseInt(Math.random() * 9).toString();  
-	            } 
-	            
-	            $.ajax({
-	                url: '/HKCIBY/hkcPhoneVerificationCode/sendHkcPhoneVerificationCode.action',
-	                type: 'POST',
-	                dataType: 'json',
-	                data: {
-	                    phone: phone,
-	                    rank: code
-	                },
-	                success: function(data) {
-	                     $("#qjphone").val(data.phone);
-	                 	 $("#qjvertify").val(data.code);
-	                },
-	            });    
-	            timeCountDown();
-	            var timer = setInterval(timeCountDown,1000);
-	    }
-	}
+// var sends = {
+// 	    checked:1,
+// 	    send:function(){
+// 	            var phone = $("#phone").val().replace(/\s+/g,"");
+// 	            if (!checkphone(phone)) {
+// 	                alert('请填写正确的手机号！');
+// 	                return false;
+// 	            }
+// 	            var time = 60;
+// 	            function timeCountDown(){
+// 	                if(time==0){
+// 	                    clearInterval(timer);
+// 	                    $('.ident-code button').addClass('send1').removeClass('send0').removeAttr("disabled").html("获取验证码");
+// 	                    sends.checked = 1;
+// 	                    return true;
+// 	                }
+// 	                $('.ident-code button').attr('disabled',"true").html(time+"秒后可重新获取");
+// 	                time--;
+// 	                return false;
+// 	                sends.checked = 0;
+// 	            }
+// 	            $('.ident-code button').addClass('send0').removeClass('send1').removeAttr("disabled");
+//
+// 	            var code ="" ;
+// 	            for (var i = 0; i < 4; i++) {
+// 	                code += parseInt(Math.random() * 9).toString();
+// 	            }
+//
+// 	            $.ajax({
+// 	                url: '/HKCIBY/hkcPhoneVerificationCode/sendHkcPhoneVerificationCode.action',
+// 	                type: 'POST',
+// 	                dataType: 'json',
+// 	                data: {
+// 	                    phone: phone,
+// 	                    rank: code
+// 	                },
+// 	                success: function(data) {
+// 	                     $("#qjphone").val(data.phone);
+// 	                 	 $("#qjvertify").val(data.code);
+// 	                },
+// 	            });
+// 	            timeCountDown();
+// 	            var timer = setInterval(timeCountDown,1000);
+// 	    }
+// 	}
 
 function initDatas(){
 	
@@ -97,30 +97,7 @@ function initDatas(){
 	}
 }
 
-function checkUserByOwnerId(){
-	var hkcVehicleOwnerInfoId = $.query.get("hkcVehicleOwnerInfoId")==true?"":$.query.get("hkcVehicleOwnerInfoId");
-	if(hkcVehicleOwnerInfoId ==""||hkcVehicleOwnerInfoId==null||hkcVehicleOwnerInfoId=="undefined"){
-		hkcVehicleOwnerInfoId = $("#hkcVehicleOwnerInfoId").val();
-    }
-	if(hkcVehicleOwnerInfoId ==""||hkcVehicleOwnerInfoId==null||hkcVehicleOwnerInfoId=="undefined"){
-		alert('程序异常，请联系管理员！');
-		return;
-    }
-	$.ajax({
-        url: '/HKCIBY/hkcVehicleOwnerInfo/checkUserByOwnerIdHkcVehicleOwnerInfo.action',
-        type: 'POST',
-        dataType: 'json',
-        async: false ,
-        data: {
-        	hkcVehicleOwnerInfoId:hkcVehicleOwnerInfoId
-        },
-        success: function(data) {
-        	if("goIndex"==data.rtnFlag){
-        		window.location.href = "index.html?hkcVehicleOwnerInfoId="+data.hkcVehicleOwnerInfoId+"&hkcVehicleInfoId="+data.hkcVehicleInfoId;
-        	}
-        },
-    });		
-}
+
 
 function upperCase(x){
     var y=document.getElementById(x).value ;
@@ -137,59 +114,6 @@ function ToCDB(str){
 		} 
 	} 
 		return tmp ;
-}
-function checkVertify(phone,code){
-	var trnFlag = "1";
-	$.ajax({
-        url: '/HKCIBY/hkcPhoneVerificationCode/checkHkcPhoneVerificationCode.action',
-        type: 'POST',
-        dataType: 'json',
-        async: false ,
-        data: {
-            phone: phone,
-            rank: code
-        },
-        success: function(data) {
-        	if("0000"==data.code){
-        		trnFlag ="2";
-        	}else{
-        		trnFlag ="1";
-        	}
-        },
-    });
-	if(trnFlag=="2"){
-		return true ;
-	}else{
-		return false ;
-	}
-	
-}
-function checkPlateNoAndPhone(phone,plateNo,hkcVehicleOwnerInfoId){
-	var trnFlag = "1";
-	$.ajax({
-        url: '/HKCIBY/hkcVehicleOwnerInfo/checkPlateNoHkcVehicleOwnerInfo.action',
-        type: 'POST',
-        dataType: 'json',
-        async: false ,
-        data: {
-            phone: phone,
-            plateNo: plateNo,
-            hkcVehicleOwnerInfoId:hkcVehicleOwnerInfoId
-        },
-        success: function(data) {
-        	if("0000"==data.code){
-        		trnFlag ="2";
-        	}else{
-        		trnFlag ="1";
-        	}
-        },
-    });
-	if(trnFlag=="2"){
-		return true ;
-	}else{
-		return false ;
-	}
-	
 }
 function submitData(){
 	
